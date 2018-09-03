@@ -1,0 +1,16 @@
+
+
+def ack(x, y):
+    if x < 0 or y < 0:
+        print("Invalid")
+        return
+    if x == 0:
+        return y + 1
+    elif x > 0 and y == 0:
+        return ack(x-1, 1)
+    elif x > 0 and y > 0:
+        return ack(x-1, ack(x, y-1))
+
+
+if __name__ == '__main__':
+    print("ack(3, 4) = {:d}".format(ack(2, 4)))
