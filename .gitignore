@@ -2,3 +2,4 @@
 !*.py
 !ch*/
 !.gitignore
+!words.txt
