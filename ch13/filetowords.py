@@ -9,6 +9,7 @@ def wordlist(file):
         line = line.strip(string.punctuation)
         for i in line.split():
             i = i.strip()
+            i = i.lower()
             if len(i) > 0:
                 list.append(i)
         line = file.readline()
@@ -25,9 +26,9 @@ def histogram(wordlist):
     return list
 
 
-def toptwenty(wordlist):
+def toptwenty(wordlist, num=20):
 
-    for i in range(20):
+    for i in range(num):
         print(wordlist[i][0])
 
 
