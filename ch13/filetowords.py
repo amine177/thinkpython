@@ -2,14 +2,19 @@ import string
 import choose_from_hist as rand_hist
 
 
-def wordlist(file):
+def wordlist(file, skipHeader=True):
 
     line = file.readline()
     list = []
+    if skipHeader:
+        while not ("CHAPTER I" in line):
+            line = file.readline()
+        file.readline()
+        file.readline()
     while line != "":
-        line = line.strip(string.punctuation)
+        line = line.replace('-', ' ')
         for i in line.split():
-            i = i.strip()
+            i = i.strip(string.punctuation+string.whitespace)
             i = i.lower()
             if len(i) > 0:
                 list.append(i)
@@ -51,4 +56,4 @@ def substruct(d1, d2):
 
 if __name__ == "__main__":
     # print(wordlist(open("filetowords.py")))
-    print(rand_hist.chose_hist(histogram(wordlist(open("filetowords.py")))))
+    print(rand_hist.chose_hist(histogram(wordlist(open("emma.txt")))))
