@@ -13,7 +13,7 @@ def rank(file):
     for i in range(len(shist)):
         graph.append((log(i+1), log(shist[i][1])))
 
-    plt.scatter(*zip(*graph))
+    plt.plot(*zip(*graph))
     plt.show()
 
 
