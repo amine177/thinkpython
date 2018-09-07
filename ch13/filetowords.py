@@ -32,6 +32,15 @@ def toptwenty(wordlist, num=20):
         print(wordlist[i][0])
 
 
+def substruct(d1, d2):
+    s1 = set(d1)
+    s2 = set(d2)
+
+    return list(s1.difference(s2))
+
+
 if __name__ == "__main__":
     # print(wordlist(open("filetowords.py")))
     toptwenty(histogram(wordlist(open("filetowords.py"))))
+    print(substruct(histogram(wordlist(open("filetowords.py"))),
+          {'amin': 1, 'def': 0}))
