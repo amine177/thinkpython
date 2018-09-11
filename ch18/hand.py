@@ -9,4 +9,8 @@ class Hand(Deck):
 
 
 if __name__ == "__main__":
-    print(Hand("A hand"))
+    d = Deck()
+    d.shuffle()
+    h = Hand("Jack playing")
+    h.add_card(d.pop_card())
+    print(h)
