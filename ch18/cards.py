@@ -51,6 +51,23 @@ class Deck:
     def sort(self):
         self.cards().sort()
 
+    def deal_hands(self, hn, cn):
+        hs = []
+        for i in range(hn):
+            h = Hand(str(i))
+            for j in range(cn):
+                h.add_card(self.pop_card())
+            hs.append(h)
+
+        return hs
+
+
+class Hand(Deck):
+
+    def __init__(self, label=''):
+        self.cards = []
+        self.label = label
+
 
 if __name__ == "__main__":
     c1 = Card(1, 13)
@@ -60,3 +77,10 @@ if __name__ == "__main__":
 
     d1 = Deck()
     print(d1)
+
+    print('***')
+
+    d1.shuffle()
+    for i in d1.deal_hands(5, 2):
+        print("Hand: ")
+        print(i)
